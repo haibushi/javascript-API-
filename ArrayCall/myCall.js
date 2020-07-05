@@ -24,15 +24,11 @@ Function.prototype.myCall = function(context,...args){
   context.fn(...args);
   delete context.fn;
 }
+
+Function.prototype.myApply = function(context,...args){
+  context.fn = this;
+  context.fn(args);
+  delete context.fn;
+}
 //obj.getName.myCall(obj1,'haibushi',16);
 
-
-function fn(...args){
-  console.log(args);
-  fn1(...args);
-}
-function fn1(a1,a2,a3){
-  console.log(a1,a2,a3);
-}
-
-fn1([1,2,3])
